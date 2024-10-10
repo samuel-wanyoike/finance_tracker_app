@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@clerk/clerk-react": "^5.11.0",
-    "react-router-dom": "^6.26.2"
-  }
-}
