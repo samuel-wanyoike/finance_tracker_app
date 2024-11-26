@@ -2,17 +2,20 @@ import express, { Express } from "express";
 import mongoose from "mongoose";
 import financialRecordRouter from "./routes/financial-records";
 import cors from "cors";
+import dotenv from "dotenv";
+
+// Load environment variables from .env file
+dotenv.config();
 
 const app: Express = express();
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || "";
+const mongoURL: string = process.env.MONGO_URL || "";
 
 app.use(express.json());
 app.use(cors());
-const mongoURI: string =
-  "mongodb+srv://wanyoikesamuel42:qFjSY6Za7InJ8NuP@financetracker.qea2w.mongodb.net/";
 
 mongoose
-  .connect(mongoURI)
+  .connect(mongoURL)
   .then(() => console.log("CONNECT TO MONGODB"))
   .catch((err) => console.error("Failed to connect to MongoDB:", err));
 
